@@ -1,0 +1,30 @@
+<html>
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</header>
+
+<body>
+    <h1 class="center-align">Nachrichten</h1>
+    <div class="row">
+        {{#value}}
+        <div class="col s6 m4 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{image.thumbnail.contentUrl}}" style="filter: brightness(50%);">
+                    <span class="card-title">{{name}}</span>
+                </div>
+                <div class="card-content">
+                    <b>{{provider.0.name}} - {{datePublished}}</b>
+                    <p>{{description}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{url}}">Weiterlesen...</a>
+                </div>
+            </div>
+        </div>
+        {{/value}}
+    </div>
+</body>
+
+</html>
