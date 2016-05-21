@@ -1,33 +1,32 @@
-var express = require('express');
-var mustacheExpress = require('mustache-express');
 var request = require('request');
+var express = require('express');
+var path = require('path');
+var mustacheExpress = require('mustache-express');
+
 var app = express();
 
+// Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
-app.set('views', __dirname);
+app.set('views', path.join(__dirname, "views"));
 
-app.get('/', function (req, res2) {
-    // Configure the request
+app.get('/', function (req, res) {
     var options = {
-        url: 'https://bingapis.azure-api.net/api/v5/news/',
-        method: 'GET',
+        url: 'https://bingapis.azure-api.net/api/v5/news',
         headers: {
-            "Ocp-Apim-Subscription-Key": "My-Subscription-Key"
+            'Ocp-Apim-Subscription-Key': 'f194c0be2191413aba28bf556f1645f9'
         }
-    }
+    };
 
-    // Start the request
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            // Print out the response body
+            //console.log(body) // Show the HTML for the Google homepage. 
+            //res.send(body);
             var news = JSON.parse(body);
-            res2.render('template', news);
+            res.render('template', news);
         }
     })
-});
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-    console.log('http://localhost:3000/');
-});
+})
+
+app.listen(8080);
