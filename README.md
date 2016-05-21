@@ -12,7 +12,7 @@ Install the node.js dependencies.
 
 ```npm install```
 
-Insert your Subscription Key in the main.js. You get it [here](https://www.microsoft.com/cognitive-services/en-US/subscriptions).
+Replace ```<My-Subscription-Key>``` in ```main.js``` with your subscription key. You can get yours [here](https://www.microsoft.com/cognitive-services/en-US/subscriptions).
 ## Run
 Start the application.
 
