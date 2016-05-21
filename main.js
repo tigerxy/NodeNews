@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
     var options = {
         url: 'https://bingapis.azure-api.net/api/v5/news',
         headers: {
-            'Ocp-Apim-Subscription-Key': 'f194c0be2191413aba28bf556f1645f9'
+            'Ocp-Apim-Subscription-Key': '<My-Subscription-Key>'
         }
     };
 
